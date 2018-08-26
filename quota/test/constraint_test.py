@@ -48,6 +48,90 @@ def test_padding():
         C_out = cons.pad_constraints(C_0, 4, 6)
 
 
+def test_abstract_base_classes():
+    '''
+    Test for checking the abstract base classes
+    '''
+    with pytest.raises(TypeError):
+        c = cons.Constraint()
+
+    with pytest.raises(TypeError):
+        c = cons.Constraint2D()
+
+def test_1D_constraint():
+
+    #Along first variable axis
+    p0 = (-1, 0)
+    p1 = (1, 0)
+
+    c = cons.Constraint1D(p0, p1)
+    C, b, n = c.constraints
+    assert np.all(C == [[0, 1], 
+                        [1, 0],
+                        [-1, 0]])
+    assert np.all(b == [0, -1, -1])
+    assert n == 1
+
+    #Along second variable axis
+    p0 = (0, -1)
+    p1 = (0, 1)
+
+    c = cons.Constraint1D(p0, p1)
+    C, b, n = c.constraints
+    assert np.all(C == [[1, 0], 
+                        [0, 1],
+                        [0, -1]])
+    assert np.all(b == [0, -1, -1])
+    assert n == 1
+
+    #Along equal variable axis
+    p0 = (-1, -1)
+    p1 = (1, 1)
+
+    c = cons.Constraint1D(p0, p1)
+    C, b, n = c.constraints
+    assert np.all(C == [[-1, 1], 
+                        [1, 0],
+                        [0, 1],
+                        [-1, 0],
+                        [0, -1]])
+    assert np.all(b == [0, -1, -1, -1, -1])
+    assert n == 1
+
+
+def test_circle_constraint():
+    c = cons.CircleConstraint(1, 4)
+
+    C, b, n = c.constraints
+    C_comp = np.array([[-1, 1], 
+                        [-1, -1],
+                        [1, -1],
+                        [1, 1]], dtype=np.float)
+    assert np.allclose(C, C_comp)
+    assert np.all(b == [-1, -1, -1, -1])
+    assert n == 0
+
+def test_sector_constraint():
+    c = cons.SectorConstraint(1, np.deg2rad(0), np.deg2rad(90), 1)
+
+    C, b, n = c.constraints
+
+    C_comp = np.array([[ 1.00000000e+00, -6.12323400e-17],
+       [-0.00000000e+00,  1.00000000e+00],
+       [-5.00000000e-01, -1.33974596e-01],
+       [-3.66025404e-01, -3.66025404e-01],
+       [-1.33974596e-01, -5.00000000e-01]])
+
+    b_comp = np.array([-0. , -0. , -0.5, -0.5, -0.5])
+
+    assert np.allclose(C, C_comp)
+    assert np.allclose(b, b_comp)
+    assert n == 0
+
 if __name__ == '__main__':
     test_concatenation()
     test_padding()
+    test_abstract_base_classes()
+    test_1D_constraint()
+    test_circle_constraint()
+    test_sector_constraint()
