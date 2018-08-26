@@ -120,7 +120,7 @@ class Allocator(ABC):
             except ValueError:
                 warn_str = """This constraint combination has no solution: 
                 {}""".format(combination)
-                warnings.warn(warn_str)
+                warnings.warn(warn_str, UserWarning)
             
 
         if not results:
