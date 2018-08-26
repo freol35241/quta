@@ -4,7 +4,7 @@ Thruster module containing classes for different type of thrusters
 import numpy as np
 from abc import ABC, abstractmethod
 
-from quota.constraints import concatenate_constraints
+from quota.constraints import concatenate_constraints, Constraint
 
 class Thruster(ABC):
     """
@@ -24,7 +24,10 @@ class Thruster(ABC):
         return self._x[1]
 
     def add_constraint(self, constraint):
-        self._constraints.append(constraint)
+        if isinstance(constraint, Constraint):
+            self._constraints.append(constraint)
+        else:
+            raise TypeError('Constraint is not of proper type!')
 
     @property
     def disjunctions(self):
@@ -34,10 +37,10 @@ class Thruster(ABC):
         return self._constraints
 
     def dynamic_constraints(current_state):
-        pass
+        raise NotImplementedError('Dynamic constraints are not yet implemented')
 
     def plot(self):
-        pass
+        raise NotImplementedError('Thruster visualization is not yet implemented')
 
 class TransverseThruster(Thruster):
     """

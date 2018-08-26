@@ -72,7 +72,7 @@ class Allocator(ABC):
         if isinstance(thruster, Thruster):
             self._thrusters.append(thruster)
         else:
-            raise ValueError("Thruster is not of proper type!")
+            raise TypeError("Thruster is not of proper type!")
 
     def assemble_constraints(self, global_thrust, relax, combination, current_state=None):
 
