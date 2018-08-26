@@ -2,7 +2,7 @@
 
 ECHO Creating virtual environment
 
-py -3.5-32 -m venv venv
+py -3-32 -m venv venv
 
 
 ECHO Installing packages
