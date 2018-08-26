@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{737f590c-93d5-4fe1-b040-cf99db841dc8}</ProjectGuid>
     <ProjectHome>..\quota\</ProjectHome>
-    <StartupFile>test\azimuth_test.py</StartupFile>
+    <StartupFile>test\thruster_test.py</StartupFile>
     <SearchPath>..\</SearchPath>
     <WorkingDirectory>..</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -30,6 +30,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test\constraint_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\thruster_test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="thruster.py">
