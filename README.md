@@ -1,4 +1,6 @@
-# quota
+# quota 
+
+[![Build Status](https://travis-ci.org/freol35241/quota.svg?branch=master)](https://travis-ci.org/freol35241/quota)
 
 **Qu**adratic **O**ptimization for **T**hrust **A**llocation 
 
