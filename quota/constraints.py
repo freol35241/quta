@@ -13,17 +13,16 @@ class ConstraintError(Exception):
     """
     ConstraintError class
     """
-    pass
+
 class ConvexError(ConstraintError):
     """
     ConvexError class
     """
-    pass
+
 class PaddingError(ConstraintError):
     """
     PaddingError class
     """
-    pass
 
 #pylint: disable=invalid-name
 def concatenate_constraints(original_set, additional_set):
@@ -94,7 +93,6 @@ class Constraint(ABC):
         """
         Abstract method, to be overridden.
         """
-        pass
 
     @property
     def constraints(self):

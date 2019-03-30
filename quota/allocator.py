@@ -18,7 +18,6 @@ class AllocationError(Exception):
     """
     AllocationError class
     """
-    pass
 
 class Allocator(ABC):
     """
@@ -68,7 +67,6 @@ class Allocator(ABC):
         Problem formulation, to be overrided
          by child class.
         """
-        pass
 
     def add_thruster(self, thruster):
         """
