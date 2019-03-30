@@ -10,6 +10,7 @@ ECHO Installing packages
 venv\Scripts\pip.exe install cython
 
 venv\Scripts\pip.exe install -r requirements.txt
+venv\Scripts\pip.exe install -r requirements_dev.txt
 
 ECHO Finished
 
