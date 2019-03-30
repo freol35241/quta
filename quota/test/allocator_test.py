@@ -14,7 +14,7 @@ def test_implementations(IMP):
     a = IMP()
 
     with pytest.raises(al.AllocationError):
-        a.allocate(0, 0, 0)
+        a.allocate(0, 0)
 
 if __name__ == '__main__':
     test_baseclass()

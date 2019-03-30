@@ -5,20 +5,33 @@ constraints for some simple geometries
 All linearized constrains returned to be compatible
 with quadprog format: C.T x >= b
 """
-import numpy as np
 import math
 from abc import ABC, abstractmethod
+import numpy as np
 
-class ConstraintError(Exception): pass
-class ConvexError(ConstraintError): pass
-class PaddingError(ConstraintError): pass
+class ConstraintError(Exception):
+    """
+    ConstraintError class
+    """
+    pass
+class ConvexError(ConstraintError):
+    """
+    ConvexError class
+    """
+    pass
+class PaddingError(ConstraintError):
+    """
+    PaddingError class
+    """
+    pass
 
+#pylint: disable=invalid-name
 def concatenate_constraints(original_set, additional_set):
     """
     Method for concatenating sets of linear constraints.
-    original_set and additional_set are both tuples of
-    for (C, b, n_eq). Output is a concatenated tuple of
-    same form.
+     original_set and additional_set are both tuples of
+     for (C, b, n_eq). Output is a concatenated tuple of
+     same form.
 
     All equality constraints are always kept on top.
     """
@@ -44,16 +57,16 @@ def concatenate_constraints(original_set, additional_set):
 def pad_constraints(C, pad_with_before, total_size, pad_value=0):
     """
     Method for padding a 2D constraint matrix in order to match
-    the total number of variables in the problem formulation.
+     the total number of variables in the problem formulation.
     """
     pad_with_after = total_size - C.shape[1] - pad_with_before
 
     if pad_with_after < 0:
         raise PaddingError('Padded size is larger than total size!')
 
-    C_out = np.pad(C, 
-                   ((0,0), (pad_with_before, pad_with_after)), 
-                   'constant', 
+    C_out = np.pad(C,
+                   ((0, 0), (pad_with_before, pad_with_after)),
+                   'constant',
                    constant_values=pad_value)
     return C_out
 
@@ -66,10 +79,11 @@ def _point_on_circle(angle, radius):
 #### Base constraint class ####
 #
 
+#pylint: disable=too-few-public-methods
 class Constraint(ABC):
     """
-    Abstract base class for a set 
-    of linear, convex constraints 
+    Abstract base class for a set
+     of linear, convex constraints
     """
     def __init__(self):
 
@@ -77,10 +91,16 @@ class Constraint(ABC):
 
     @abstractmethod
     def _linearized_constraint(self):
+        """
+        Abstract method, to be overridden.
+        """
         pass
 
     @property
     def constraints(self):
+        """
+        Constraints in matrix and vector form
+        """
         return self._C, self._b, self._n
 #
 #
@@ -90,9 +110,9 @@ class Constraint(ABC):
 
 class Constraint1D(Constraint):
     """
-    Abstract base class for a set of 
-    linear, convex constraints forming 
-    a 1D equality line with 'end caps'.
+    Abstract base class for a set of
+     linear, convex constraints forming
+     a 1D equality line with 'end caps'.
     """
     def __init__(self, po0, po1):
         x0, y0 = po0
@@ -135,8 +155,6 @@ class Constraint1D(Constraint):
             C[2] = [-1, 0]
             b[2] = -x1
 
-            return C, b, 1
-
         elif a/(0.5*np.pi) == a//(0.5*np.pi):
             #Only forces in y-direction allowed
             C = np.zeros((3, 2))
@@ -152,8 +170,6 @@ class Constraint1D(Constraint):
             b[1] = y0
             C[2] = [0, -1]
             b[2] = -y1
-
-            return C, b, 1
 
         else:
             # Forces in both x- and y-direction allowed
@@ -177,9 +193,9 @@ class Constraint1D(Constraint):
             C[3] = [-1, 0]
             b[3] = -max([x0, x1])
             C[4] = [0, -1]
-            b[4] = -max([y0,y1])
+            b[4] = -max([y0, y1])
 
-            return C, b, 1
+        return C, b, 1
 
 
 
@@ -191,9 +207,9 @@ class Constraint1D(Constraint):
 
 class Constraint2D(Constraint):
     """
-    Abstract base class for a set of 
-    linear, convex constraints forming
-    a 2D boundary surface.
+    Abstract base class for a set of
+     linear, convex constraints forming
+     a 2D boundary surface.
     """
 
     @abstractmethod
@@ -249,24 +265,22 @@ class SectorConstraint(Constraint2D):
 
         delta = (end - start) % (2*np.pi)
         if delta > np.pi:
-            raise ConvexError("""Delta angle of this SectorConstraint 
-                               is {:.1f} deg which is greater than 180 
-                               deg. Please reformulate to a convex 
+            raise ConvexError("""Delta angle of this SectorConstraint
+                               is {:.1f} deg which is greater than 180
+                               deg. Please reformulate to a convex
                                constraint.""".format(np.rad2deg(delta)))
 
         self._radius = radius
         self._start = start
-        self._end = end
         self._edges = edges
         self._delta = delta
-        
+
         super().__init__()
 
     def _boundary_points(self):
 
         radius = self._radius
         start = self._start
-        end = self._end
         delta = self._delta
 
         n = math.ceil(delta/2*np.pi * self._edges)
@@ -276,11 +290,10 @@ class SectorConstraint(Constraint2D):
         points = []
 
         #Origin
-        points.append((0,0))
+        points.append((0, 0))
 
         #Circle arc
         for i in range(0, n+1):
             points.append(_point_on_circle(i*step_angle+start, radius))
 
         return points
-
