@@ -1,4 +1,4 @@
 cython
 numpy
-quadprog
+quadprog<0.1.7
 
