@@ -1,6 +1,6 @@
 # quota 
 
-[![Build Status](https://travis-ci.org/freol35241/quota.svg?branch=master)](https://travis-ci.org/freol35241/quota)
+![](https://github.com/freol35241/quota/workflows/Quota/badge.svg)
 
 **Qu**adratically **O**ptimized **T**hrust **A**llocation 
 
