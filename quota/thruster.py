@@ -2,7 +2,7 @@
 Thruster module containing classes for different type of thrusters
 """
 import numpy as np
-from quota.constraints import Constraint
+from quota.constraints import Constraint, Constraint1D, CircleConstraint
 
 class Thruster:
     """
@@ -65,8 +65,6 @@ class TransverseThruster(Thruster):
      direction, length and offset along line.
     """
     def __init__(self, pos, max_force):
-        from quota.constraints import Constraint1D
-
         super().__init__(pos)
 
         self._max_force = max_force
@@ -83,8 +81,6 @@ class LongitudinalThruster(Thruster):
      direction, length and offset along line.
     """
     def __init__(self, pos, max_force):
-        from quota.constraints import Constraint1D
-
         super().__init__(pos)
 
         self._max_force = max_force
@@ -102,8 +98,6 @@ class AzimuthThruster(Thruster):
      force that can be delivered (max_force).
     """
     def __init__(self, pos, max_force, n_discret):
-        from quota.constraints import CircleConstraint
-
         super().__init__(pos)
 
         self._max_force = max_force
