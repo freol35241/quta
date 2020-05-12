@@ -1,7 +1,6 @@
 '''
 Tests for allocator module
 '''
-import numpy as np
 import pytest
 import quota.allocator as al
 
