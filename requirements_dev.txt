@@ -1,5 +1,7 @@
 pytest
+pytest-cov
 pylint
 black
 sphinx
 sphinx-rtd-theme
+-e .

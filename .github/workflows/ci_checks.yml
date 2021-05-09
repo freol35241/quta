@@ -1,0 +1,63 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: quota
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  black: 
+    runs-on: ubuntu-latest
+    name: "Running black"
+    steps:
+    - uses: actions/checkout@v2
+    - name: "Set up Python 3"
+      uses: actions/setup-python@v2
+      with: 
+          python-version: '3.x'
+    - name: "Install dependencies"
+      run: "pip install -r requirements_dev.txt"
+    - name: "Run black!"
+      run: "black --check ."
+
+  pylint: 
+    runs-on: ubuntu-latest
+    name: "Running pylint"
+    steps: 
+    - uses: actions/checkout@v2
+    - name: "Set up Python 3"
+      uses: actions/setup-python@v2
+      with: 
+          python-version: '3.x'
+    - name: "Install dependencies"
+      run: "pip install -r requirements_dev.txt"
+    - name: "Run pylint!"
+      run: "pylint quota"
+
+  pytest:
+    runs-on: ubuntu-latest
+    name: "Running pytest"
+    needs: [black, pylint]
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+    steps:
+    - uses: actions/checkout@v2
+    - name: "Set up Python 3"
+      uses: actions/setup-python@v2
+      with: 
+          python-version: '3.x'
+    - name: "Install dependencies"
+      run: "pip install -r requirements_dev.txt"
+    - name: Test with pytest
+      run: |
+        pytest --cov=quota --cov-report=xml test
+    - name: Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        files: ./coverage.xml
+        fail_ci_if_error: true
