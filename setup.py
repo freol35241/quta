@@ -7,21 +7,29 @@ from setuptools import setup
 # string in below ...
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
-    
+
+
 # Parse the requirements-txt file and use for install_requires in pip
-with open('requirements.txt') as f:
+with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 setup(
-    name = "quota",
-    version = "0.1dev0",
-    author = "Fredrik Olsson",
-    description = ("""Quadratic optimization for thrust allocation"""),
-    url = "?",
-    packages=['quota'],
-    long_description=read('README.md'),
+    name="quota",
+    version="0.1.0",
+    author="Fredrik Olsson",
+    author_email="freol@outlook.com",
+    maintainer="Fredrik Olsson",
+    maintainer_email="freol@outlook.com",
+    description="Thrust allocation using Quadratic programming",
+    url="https://github.com/freol35241/quota",
+    packages=["quota"],
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     classifiers=[
-        "Development Status :: 4 - Beta"
+        "Development Status :: 4 - Beta",
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: MIT License",
     ],
-    install_requires = required,
+    install_requires=required,
 )

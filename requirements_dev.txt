@@ -1,3 +1,5 @@
 pytest
 pylint
-
+black
+sphinx
+sphinx-rtd-theme

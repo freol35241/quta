@@ -9,22 +9,26 @@ import math
 from abc import ABC, abstractmethod
 import numpy as np
 
+
 class ConstraintError(Exception):
     """
     ConstraintError class
     """
+
 
 class ConvexError(ConstraintError):
     """
     ConvexError class
     """
 
+
 class PaddingError(ConstraintError):
     """
     PaddingError class
     """
 
-#pylint: disable=invalid-name
+
+# pylint: disable=invalid-name
 def concatenate_constraints(original_set, additional_set):
     """
     Method for concatenating sets of linear constraints.
@@ -48,10 +52,10 @@ def concatenate_constraints(original_set, additional_set):
         C_out = np.concatenate((C_org, C_add))
         b_out = np.concatenate((b_org, b_add))
 
-
     n_out = n_org + n_add
 
     return C_out, b_out, n_out
+
 
 def pad_constraints(C, pad_with_before, total_size, pad_value=0):
     """
@@ -61,16 +65,20 @@ def pad_constraints(C, pad_with_before, total_size, pad_value=0):
     pad_with_after = total_size - C.shape[1] - pad_with_before
 
     if pad_with_after < 0:
-        raise PaddingError('Padded size is larger than total size!')
+        raise PaddingError("Padded size is larger than total size!")
 
-    C_out = np.pad(C,
-                   ((0, 0), (pad_with_before, pad_with_after)),
-                   'constant',
-                   constant_values=pad_value)
+    C_out = np.pad(
+        C,
+        ((0, 0), (pad_with_before, pad_with_after)),
+        "constant",
+        constant_values=pad_value,
+    )
     return C_out
 
+
 def _point_on_circle(angle, radius):
-    return radius*np.cos(angle), radius*np.sin(angle)
+    return radius * np.cos(angle), radius * np.sin(angle)
+
 
 #
 #
@@ -78,12 +86,13 @@ def _point_on_circle(angle, radius):
 #### Base constraint class ####
 #
 
-#pylint: disable=too-few-public-methods
+# pylint: disable=too-few-public-methods
 class Constraint(ABC):
     """
     Abstract base class for a set
      of linear, convex constraints
     """
+
     def __init__(self):
 
         self._C, self._b, self._n = self._linearized_constraint()
@@ -100,11 +109,14 @@ class Constraint(ABC):
         Constraints in matrix and vector form
         """
         return self._C, self._b, self._n
+
+
 #
 #
 #
 #### 1D constraints ####
 #
+
 
 class Constraint1D(Constraint):
     """
@@ -112,6 +124,7 @@ class Constraint1D(Constraint):
      linear, convex constraints forming
      a 1D equality line with 'end caps'.
     """
+
     def __init__(self, po0, po1):
         x0, y0 = po0
         x1, y1 = po1
@@ -128,7 +141,6 @@ class Constraint1D(Constraint):
 
         super().__init__()
 
-
     def _linearized_constraint(self):
 
         C = np.zeros((5, 2))
@@ -137,33 +149,33 @@ class Constraint1D(Constraint):
         x0, y0, x1, y1 = self._x0, self._y0, self._x1, self._y1
         a = self._angle
 
-        if a/np.pi == a//np.pi:
-            #Only forces in x-direction allowed
+        if a / np.pi == a // np.pi:
+            # Only forces in x-direction allowed
             C = np.zeros((3, 2))
             b = np.zeros(3)
 
-            #Equality constraint
+            # Equality constraint
             C[0, 0] = 0
             C[0, 1] = 1
             b[0] = 0
 
-            #Boundaries
+            # Boundaries
             C[1] = [1, 0]
             b[1] = x0
             C[2] = [-1, 0]
             b[2] = -x1
 
-        elif a/(0.5*np.pi) == a//(0.5*np.pi):
-            #Only forces in y-direction allowed
+        elif a / (0.5 * np.pi) == a // (0.5 * np.pi):
+            # Only forces in y-direction allowed
             C = np.zeros((3, 2))
             b = np.zeros(3)
 
-            #Equality constraint
+            # Equality constraint
             C[0, 0] = 1
             C[0, 1] = 0
             b[0] = 0
 
-            #Boundaries
+            # Boundaries
             C[1] = [0, 1]
             b[1] = y0
             C[2] = [0, -1]
@@ -174,16 +186,16 @@ class Constraint1D(Constraint):
             C = np.zeros((5, 2))
             b = np.zeros(5)
 
-            x_c = -(y1 - y0)/(x1 - x0)
+            x_c = -(y1 - y0) / (x1 - x0)
             y_c = 1
-            b_c = y1 +x_c*x1
+            b_c = y1 + x_c * x1
 
-            #Equality constraint
+            # Equality constraint
             C[0, 0] = x_c
             C[0, 1] = y_c
             b[0] = b_c
 
-            #Boundaries
+            # Boundaries
             C[1] = [1, 0]
             b[1] = min([x0, x1])
             C[2] = [0, 1]
@@ -196,12 +208,12 @@ class Constraint1D(Constraint):
         return C, b, 1
 
 
-
 #
 #
 #
 #### 2D constraints ####
 #
+
 
 class Constraint2D(Constraint):
     """
@@ -223,13 +235,14 @@ class Constraint2D(Constraint):
         b = np.zeros(n)
 
         for i in range(0, n):
-            x0, y0 = points[i-1]
+            x0, y0 = points[i - 1]
             x1, y1 = points[i]
             C[i, 0] = y1 - y0
             C[i, 1] = x0 - x1
-            b[i] = x0*y1 - x1*y0
+            b[i] = x0 * y1 - x1 * y0
 
-        return -C, -b, 0    #Negation to adhere to quadprog format C.T x >= b
+        return -C, -b, 0  # Negation to adhere to quadprog format C.T x >= b
+
 
 class CircleConstraint(Constraint2D):
     """
@@ -246,13 +259,14 @@ class CircleConstraint(Constraint2D):
         n = self._edges
         radius = self._radius
 
-        step_angle = 2*np.pi / n
+        step_angle = 2 * np.pi / n
 
         points = []
         for i in range(0, n):
-            points.append(_point_on_circle(i*step_angle, radius))
+            points.append(_point_on_circle(i * step_angle, radius))
 
         return points
+
 
 class SectorConstraint(Constraint2D):
     """
@@ -261,12 +275,16 @@ class SectorConstraint(Constraint2D):
 
     def __init__(self, radius, start, end, edges=10):
 
-        delta = (end - start) % (2*np.pi)
+        delta = (end - start) % (2 * np.pi)
         if delta > np.pi:
-            raise ConvexError("""Delta angle of this SectorConstraint
+            raise ConvexError(
+                """Delta angle of this SectorConstraint
                                is {:.1f} deg which is greater than 180
                                deg. Please reformulate to a convex
-                               constraint.""".format(np.rad2deg(delta)))
+                               constraint.""".format(
+                    np.rad2deg(delta)
+                )
+            )
 
         self._radius = radius
         self._start = start
@@ -281,17 +299,17 @@ class SectorConstraint(Constraint2D):
         start = self._start
         delta = self._delta
 
-        n = math.ceil(delta/2*np.pi * self._edges)
+        n = math.ceil(delta / 2 * np.pi * self._edges)
 
         step_angle = delta / n
 
         points = []
 
-        #Origin
+        # Origin
         points.append((0, 0))
 
-        #Circle arc
-        for i in range(0, n+1):
-            points.append(_point_on_circle(i*step_angle+start, radius))
+        # Circle arc
+        for i in range(0, n + 1):
+            points.append(_point_on_circle(i * step_angle + start, radius))
 
         return points
