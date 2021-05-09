@@ -1,15 +1,15 @@
 """
-Integration tests for quota package
+Integration tests for quta package
 """
 
 import time
 import pytest
 import numpy as np
 
-from quota.thruster import AzimuthThruster, TransverseThruster, Thruster
-from quota.allocator import MinimizePowerAllocator, AllocationError
+from quta.thruster import AzimuthThruster, TransverseThruster, Thruster
+from quta.allocator import MinimizePowerAllocator, AllocationError
 
-from quota.constraints import SectorConstraint, Constraint1D
+from quta.constraints import SectorConstraint, Constraint1D
 
 
 def calculate_global_thrust(thruster_positions, xy_forces):

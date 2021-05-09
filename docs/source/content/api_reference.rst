@@ -1,24 +1,24 @@
-.. _quota-reference:
+.. _quta-reference:
 
-quota
+quta
 =========================
 
-.. automodule:: quota
+.. automodule:: quta
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: quota.allocator
+.. automodule:: quta.allocator
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: quota.constraints
+.. automodule:: quta.constraints
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: quota.thruster
+.. automodule:: quta.thruster
    :members:
    :undoc-members:
    :show-inheritance:

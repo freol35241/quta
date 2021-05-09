@@ -3,7 +3,7 @@ Tests for constraint module
 """
 import numpy as np
 import pytest
-import quota.constraints as cons
+import quta.constraints as cons
 
 
 def test_concatenation():

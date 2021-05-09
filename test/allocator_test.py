@@ -2,7 +2,7 @@
 Tests for allocator module
 """
 import pytest
-import quota.allocator as al
+import quta.allocator as al
 
 
 def test_baseclass():

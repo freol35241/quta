@@ -2,7 +2,7 @@
 Thruster module containing classes for different type of thrusters
 """
 import numpy as np
-from quota.constraints import Constraint, Constraint1D, CircleConstraint
+from quta.constraints import Constraint, Constraint1D, CircleConstraint
 
 
 class Thruster:

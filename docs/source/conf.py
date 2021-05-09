@@ -19,7 +19,7 @@ sys.path.insert(0, str(REPO_ROOT.resolve()))
 
 # -- Project information -----------------------------------------------------
 
-project = "quota"
+project = "quta"
 copyright = "2021, freol35241"
 author = "freol35241"
 

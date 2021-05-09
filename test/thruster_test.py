@@ -3,8 +3,8 @@ Tests for thruster module
 """
 import numpy as np
 import pytest
-import quota.thruster as th
-from quota.constraints import Constraint1D, Constraint2D
+import quta.thruster as th
+from quta.constraints import Constraint1D, Constraint2D
 
 
 def test_base_class():

@@ -9,8 +9,8 @@ from abc import ABC, abstractmethod
 import numpy as np
 import quadprog
 
-from quota.thruster import Thruster
-from quota.constraints import concatenate_constraints, pad_constraints
+from quta.thruster import Thruster
+from quta.constraints import concatenate_constraints, pad_constraints
 
 DOFS = 3
 

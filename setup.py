@@ -14,15 +14,15 @@ with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 setup(
-    name="quota",
+    name="quta",
     version="0.1.0",
     author="Fredrik Olsson",
     author_email="freol@outlook.com",
     maintainer="Fredrik Olsson",
     maintainer_email="freol@outlook.com",
     description="Thrust allocation using Quadratic programming",
-    url="https://github.com/freol35241/quota",
-    packages=["quota"],
+    url="https://github.com/freol35241/quta",
+    packages=["quta"],
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     classifiers=[
