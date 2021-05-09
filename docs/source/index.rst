@@ -21,6 +21,8 @@ in the plane (3DOFs).
    :maxdepth: 2
    :caption: Examples
 
+   content/examples/simple_example.rst
+
 
 .. toctree::
    :maxdepth: 2
