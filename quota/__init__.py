@@ -1,6 +1,4 @@
 """
-quota
-
 A python package for solving thrust allocation problems
 in the plane. The implementation is plenty fast enough
 to be used in real-time applications.
