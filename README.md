@@ -1,6 +1,9 @@
 # quota 
 
-![](https://github.com/freol35241/quota/workflows/Quota/badge.svg)
+[![PyPI version shields.io](https://img.shields.io/pypi/v/quota.svg)](https://pypi.python.org/pypi/quota/)
+![](https://github.com/freol35241/quota/workflows/quota/badge.svg)
+[![codecov](https://codecov.io/gh/freol35241/quota/branch/master/graph/badge.svg)](https://codecov.io/gh/freol35241/quota)
+![docs](https://github.com/freol35241/quota/workflows/docs/badge.svg)
 
 **Qu**adratically **O**ptimized **T**hrust **A**llocation 
 
