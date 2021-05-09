@@ -1,12 +1,12 @@
-.. quota documentation master file, created by
+.. quta documentation master file, created by
    sphinx-quickstart on Mon May  9 10:31:30 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to quota's documentation!
+Welcome to quta's documentation!
 ==================================
 
-quota is an open source python package leveraging the optimization technique
+quta is an open source python package leveraging the optimization technique
 quadratic programming for allocation of thrust to thrusters fixed on a body
 in the plane (3DOFs).
 

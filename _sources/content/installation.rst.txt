@@ -1,12 +1,12 @@
-.. quota-installation
+.. quta-installation
 
 Installation
 ===================
 
-`quota` is published as a `pure-python wheel on PyPi <https://pypi.org/project/quota/>`__ and can be easily installed as:
+`quta` is published as a `pure-python wheel on PyPi <https://pypi.org/project/quta/>`__ and can be easily installed as:
 
 .. code:: console
 
-    pip install quota
+    pip install quta
 
-The source of `quota` is available at https://github.com/freol35241/quota
+The source of `quta` is available at https://github.com/freol35241/quta

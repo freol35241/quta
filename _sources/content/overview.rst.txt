@@ -1,4 +1,4 @@
-.. quota-overview
+.. quta-overview
 
 Overview
 ================

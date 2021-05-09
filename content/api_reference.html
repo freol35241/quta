@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>quota &mdash; quota 0.1.0 documentation</title>
+  <title>quta &mdash; quta 0.1.0 documentation</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> quota
+            <a href="../index.html" class="icon icon-home"> quta
           
 
           
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">quota</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">quta</a></li>
 </ul>
 
             
@@ -109,7 +109,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">quota</a>
+          <a href="../index.html">quta</a>
         
       </nav>
 
@@ -142,7 +142,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>quota</li>
+      <li>quta</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,72 +161,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-quota">
-<span id="quota"></span><span id="quota-reference"></span><h1>quota<a class="headerlink" href="#module-quota" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-quta">
+<span id="quta"></span><span id="quta-reference"></span><h1>quta<a class="headerlink" href="#module-quta" title="Permalink to this headline">¶</a></h1>
 <p>A python package for solving thrust allocation problems
 in the plane. The implementation is plenty fast enough
 to be used in real-time applications.</p>
 <p>Utilizes quadratic programming with linearized constraints
 and disjunctive methodology together with (optional) slack
 variables for fast and robust allocation.</p>
-<span class="target" id="module-quota.allocator"></span><p>Module containing the core allocation solver functionality</p>
+<span class="target" id="module-quta.allocator"></span><p>Module containing the core allocation solver functionality</p>
 <dl class="py exception">
-<dt class="sig sig-object py" id="quota.allocator.AllocationError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quota.allocator.</span></span><span class="sig-name descname"><span class="pre">AllocationError</span></span><a class="headerlink" href="#quota.allocator.AllocationError" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.AllocationError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quta.allocator.</span></span><span class="sig-name descname"><span class="pre">AllocationError</span></span><a class="headerlink" href="#quta.allocator.AllocationError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>AllocationError class</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.allocator.Allocator">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.allocator.</span></span><span class="sig-name descname"><span class="pre">Allocator</span></span><a class="headerlink" href="#quota.allocator.Allocator" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.allocator.</span></span><span class="sig-name descname"><span class="pre">Allocator</span></span><a class="headerlink" href="#quta.allocator.Allocator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <dl class="simple">
 <dt>Abstract base class for allocation problem</dt><dd><p>formulations.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.add_thruster">
-<span class="sig-name descname"><span class="pre">add_thruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thruster</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.allocator.Allocator.add_thruster" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.add_thruster">
+<span class="sig-name descname"><span class="pre">add_thruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thruster</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.allocator.Allocator.add_thruster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a thruster to the allocation problem.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.allocate">
-<span class="sig-name descname"><span class="pre">allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_thrust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.allocator.Allocator.allocate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.allocate">
+<span class="sig-name descname"><span class="pre">allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_thrust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.allocator.Allocator.allocate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allocate global thrust vector to available thrusters</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.assemble_constraints">
-<span class="sig-name descname"><span class="pre">assemble_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_thrust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combination</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.allocator.Allocator.assemble_constraints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.assemble_constraints">
+<span class="sig-name descname"><span class="pre">assemble_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_thrust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combination</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.allocator.Allocator.assemble_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assemble linear constraints into matrix form</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.n_problem">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_problem</span></span><a class="headerlink" href="#quota.allocator.Allocator.n_problem" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.n_problem">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_problem</span></span><a class="headerlink" href="#quta.allocator.Allocator.n_problem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of unknown variables to be allocated
 in the original (non-relaxed) problem.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.n_relaxed_problem">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_relaxed_problem</span></span><a class="headerlink" href="#quota.allocator.Allocator.n_relaxed_problem" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.n_relaxed_problem">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_relaxed_problem</span></span><a class="headerlink" href="#quta.allocator.Allocator.n_relaxed_problem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of unknown variables to be allocated
 in the relaxed problem.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.n_thrusters">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_thrusters</span></span><a class="headerlink" href="#quota.allocator.Allocator.n_thrusters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.n_thrusters">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_thrusters</span></span><a class="headerlink" href="#quta.allocator.Allocator.n_thrusters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of thrusters assigned to this
 allocation problem.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.problem_formulation">
-<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">problem_formulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.allocator.Allocator.problem_formulation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.problem_formulation">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">problem_formulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.allocator.Allocator.problem_formulation" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Problem formulation, to be overrided</dt><dd><p>by child class.</p>
 </dd>
@@ -234,8 +234,8 @@ allocation problem.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.allocator.Allocator.set_slack_coefficients">
-<span class="sig-name descname"><span class="pre">set_slack_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">1000,</span> <span class="pre">1000)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.allocator.Allocator.set_slack_coefficients" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.Allocator.set_slack_coefficients">
+<span class="sig-name descname"><span class="pre">set_slack_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">1000,</span> <span class="pre">1000)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.allocator.Allocator.set_slack_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Set slack coefficients [Fx, Fy, Mz] used in the</dt><dd><p>problem formulation for penalty calculation.</p>
 </dd>
@@ -245,49 +245,49 @@ allocation problem.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.allocator.MinimizePowerAllocator">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.allocator.</span></span><span class="sig-name descname"><span class="pre">MinimizePowerAllocator</span></span><a class="headerlink" href="#quota.allocator.MinimizePowerAllocator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.allocator.Allocator" title="quota.allocator.Allocator"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.allocator.Allocator</span></code></a></p>
+<dt class="sig sig-object py" id="quta.allocator.MinimizePowerAllocator">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.allocator.</span></span><span class="sig-name descname"><span class="pre">MinimizePowerAllocator</span></span><a class="headerlink" href="#quta.allocator.MinimizePowerAllocator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.allocator.Allocator" title="quta.allocator.Allocator"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.allocator.Allocator</span></code></a></p>
 <p>Class for allocating thrust while minimizing total power consumption</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.allocator.MinimizePowerAllocator.problem_formulation">
-<span class="sig-name descname"><span class="pre">problem_formulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.allocator.MinimizePowerAllocator.problem_formulation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.allocator.MinimizePowerAllocator.problem_formulation">
+<span class="sig-name descname"><span class="pre">problem_formulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.allocator.MinimizePowerAllocator.problem_formulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Problem formulation in matrix form</p>
 </dd></dl>
 
 </dd></dl>
 
-<span class="target" id="module-quota.constraints"></span><p>Module containing functionality for creating linearized
+<span class="target" id="module-quta.constraints"></span><p>Module containing functionality for creating linearized
 constraints for some simple geometries</p>
 <p>All linearized constrains returned to be compatible
 with quadprog format: C.T x &gt;= b</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.constraints.CircleConstraint">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">CircleConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.constraints.CircleConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.constraints.Constraint2D" title="quota.constraints.Constraint2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.constraints.Constraint2D</span></code></a></p>
+<dt class="sig sig-object py" id="quta.constraints.CircleConstraint">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">CircleConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.constraints.CircleConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.constraints.Constraint2D" title="quta.constraints.Constraint2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.constraints.Constraint2D</span></code></a></p>
 <p>Constraint describing a circle</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.constraints.Constraint">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">Constraint</span></span><a class="headerlink" href="#quota.constraints.Constraint" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.constraints.Constraint">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">Constraint</span></span><a class="headerlink" href="#quta.constraints.Constraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <dl class="simple">
 <dt>Abstract base class for a set</dt><dd><p>of linear, convex constraints</p>
 </dd>
 </dl>
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.constraints.Constraint.constraints">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">constraints</span></span><a class="headerlink" href="#quota.constraints.Constraint.constraints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.constraints.Constraint.constraints">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">constraints</span></span><a class="headerlink" href="#quta.constraints.Constraint.constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constraints in matrix and vector form</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.constraints.Constraint1D">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">Constraint1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">po0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">po1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.constraints.Constraint1D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.constraints.Constraint" title="quota.constraints.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.constraints.Constraint</span></code></a></p>
+<dt class="sig sig-object py" id="quta.constraints.Constraint1D">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">Constraint1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">po0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">po1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.constraints.Constraint1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.constraints.Constraint" title="quta.constraints.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.constraints.Constraint</span></code></a></p>
 <dl class="simple">
 <dt>Abstract base class for a set of</dt><dd><p>linear, convex constraints forming
 a 1D equality line with ‘end caps’.</p>
@@ -296,9 +296,9 @@ a 1D equality line with ‘end caps’.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.constraints.Constraint2D">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">Constraint2D</span></span><a class="headerlink" href="#quota.constraints.Constraint2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.constraints.Constraint" title="quota.constraints.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.constraints.Constraint</span></code></a></p>
+<dt class="sig sig-object py" id="quta.constraints.Constraint2D">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">Constraint2D</span></span><a class="headerlink" href="#quta.constraints.Constraint2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.constraints.Constraint" title="quta.constraints.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.constraints.Constraint</span></code></a></p>
 <dl class="simple">
 <dt>Abstract base class for a set of</dt><dd><p>linear, convex constraints forming
 a 2D boundary surface.</p>
@@ -307,36 +307,36 @@ a 2D boundary surface.</p>
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="quota.constraints.ConstraintError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">ConstraintError</span></span><a class="headerlink" href="#quota.constraints.ConstraintError" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.constraints.ConstraintError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">ConstraintError</span></span><a class="headerlink" href="#quta.constraints.ConstraintError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>ConstraintError class</p>
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="quota.constraints.ConvexError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">ConvexError</span></span><a class="headerlink" href="#quota.constraints.ConvexError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.constraints.ConstraintError" title="quota.constraints.ConstraintError"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.constraints.ConstraintError</span></code></a></p>
+<dt class="sig sig-object py" id="quta.constraints.ConvexError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">ConvexError</span></span><a class="headerlink" href="#quta.constraints.ConvexError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.constraints.ConstraintError" title="quta.constraints.ConstraintError"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.constraints.ConstraintError</span></code></a></p>
 <p>ConvexError class</p>
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="quota.constraints.PaddingError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">PaddingError</span></span><a class="headerlink" href="#quota.constraints.PaddingError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.constraints.ConstraintError" title="quota.constraints.ConstraintError"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.constraints.ConstraintError</span></code></a></p>
+<dt class="sig sig-object py" id="quta.constraints.PaddingError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">PaddingError</span></span><a class="headerlink" href="#quta.constraints.PaddingError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.constraints.ConstraintError" title="quta.constraints.ConstraintError"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.constraints.ConstraintError</span></code></a></p>
 <p>PaddingError class</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.constraints.SectorConstraint">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">SectorConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.constraints.SectorConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.constraints.Constraint2D" title="quota.constraints.Constraint2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.constraints.Constraint2D</span></code></a></p>
+<dt class="sig sig-object py" id="quta.constraints.SectorConstraint">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">SectorConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.constraints.SectorConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.constraints.Constraint2D" title="quta.constraints.Constraint2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.constraints.Constraint2D</span></code></a></p>
 <p>Constraint describing a circle sector</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quota.constraints.concatenate_constraints">
-<span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">concatenate_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.constraints.concatenate_constraints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.constraints.concatenate_constraints">
+<span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">concatenate_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.constraints.concatenate_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Method for concatenating sets of linear constraints.</dt><dd><p>original_set and additional_set are both tuples of
 for (C, b, n_eq). Output is a concatenated tuple of
@@ -347,19 +347,19 @@ same form.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quota.constraints.pad_constraints">
-<span class="sig-prename descclassname"><span class="pre">quota.constraints.</span></span><span class="sig-name descname"><span class="pre">pad_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_with_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.constraints.pad_constraints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.constraints.pad_constraints">
+<span class="sig-prename descclassname"><span class="pre">quta.constraints.</span></span><span class="sig-name descname"><span class="pre">pad_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_with_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.constraints.pad_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Method for padding a 2D constraint matrix in order to match</dt><dd><p>the total number of variables in the problem formulation.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<span class="target" id="module-quota.thruster"></span><p>Thruster module containing classes for different type of thrusters</p>
+<span class="target" id="module-quta.thruster"></span><p>Thruster module containing classes for different type of thrusters</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.thruster.AzimuthThruster">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.thruster.</span></span><span class="sig-name descname"><span class="pre">AzimuthThruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_discret</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.thruster.AzimuthThruster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.thruster.Thruster" title="quota.thruster.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.thruster.Thruster</span></code></a></p>
+<dt class="sig sig-object py" id="quta.thruster.AzimuthThruster">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.thruster.</span></span><span class="sig-name descname"><span class="pre">AzimuthThruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_discret</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.thruster.AzimuthThruster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.thruster.Thruster" title="quta.thruster.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.thruster.Thruster</span></code></a></p>
 <dl class="simple">
 <dt>Convenience class for setting up a typical</dt><dd><p>Azimuthing thruster.</p>
 </dd>
@@ -371,9 +371,9 @@ force that can be delivered (max_force).</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.thruster.LongitudinalThruster">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.thruster.</span></span><span class="sig-name descname"><span class="pre">LongitudinalThruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_force</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.thruster.LongitudinalThruster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.thruster.Thruster" title="quota.thruster.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.thruster.Thruster</span></code></a></p>
+<dt class="sig sig-object py" id="quta.thruster.LongitudinalThruster">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.thruster.</span></span><span class="sig-name descname"><span class="pre">LongitudinalThruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_force</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.thruster.LongitudinalThruster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.thruster.Thruster" title="quta.thruster.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.thruster.Thruster</span></code></a></p>
 <dl class="simple">
 <dt>Class holding properties of a longitudinal</dt><dd><p>thruster. Force direction is along to
 the vessel longitudinal axis.</p>
@@ -384,46 +384,46 @@ the vessel longitudinal axis.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.thruster.Thruster">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.thruster.</span></span><span class="sig-name descname"><span class="pre">Thruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.thruster.Thruster" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.thruster.Thruster">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.thruster.</span></span><span class="sig-name descname"><span class="pre">Thruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.thruster.Thruster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class holding properties of a Thruster</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.thruster.Thruster.add_constraint">
-<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.thruster.Thruster.add_constraint" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.thruster.Thruster.add_constraint">
+<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.thruster.Thruster.add_constraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a constraint to this thruster</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.thruster.Thruster.disjunctions">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">disjunctions</span></span><a class="headerlink" href="#quota.thruster.Thruster.disjunctions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.thruster.Thruster.disjunctions">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">disjunctions</span></span><a class="headerlink" href="#quta.thruster.Thruster.disjunctions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns number of disjunct constraints</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.thruster.Thruster.pos_x">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">pos_x</span></span><a class="headerlink" href="#quota.thruster.Thruster.pos_x" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.thruster.Thruster.pos_x">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">pos_x</span></span><a class="headerlink" href="#quta.thruster.Thruster.pos_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>x-position of thruster</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="quota.thruster.Thruster.pos_y">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">pos_y</span></span><a class="headerlink" href="#quota.thruster.Thruster.pos_y" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.thruster.Thruster.pos_y">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">pos_y</span></span><a class="headerlink" href="#quta.thruster.Thruster.pos_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>y-position of thruster</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="quota.thruster.Thruster.static_constraints">
-<span class="sig-name descname"><span class="pre">static_constraints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quota.thruster.Thruster.static_constraints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="quta.thruster.Thruster.static_constraints">
+<span class="sig-name descname"><span class="pre">static_constraints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quta.thruster.Thruster.static_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns static constaints</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="quota.thruster.TransverseThruster">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quota.thruster.</span></span><span class="sig-name descname"><span class="pre">TransverseThruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_force</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quota.thruster.TransverseThruster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quota.thruster.Thruster" title="quota.thruster.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">quota.thruster.Thruster</span></code></a></p>
+<dt class="sig sig-object py" id="quta.thruster.TransverseThruster">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quta.thruster.</span></span><span class="sig-name descname"><span class="pre">TransverseThruster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_force</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quta.thruster.TransverseThruster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quta.thruster.Thruster" title="quta.thruster.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">quta.thruster.Thruster</span></code></a></p>
 <dl class="simple">
 <dt>Class holding properties of a transverse</dt><dd><p>thruster. Force direction is transverse to
 the vessel longitudinal axis.</p>
